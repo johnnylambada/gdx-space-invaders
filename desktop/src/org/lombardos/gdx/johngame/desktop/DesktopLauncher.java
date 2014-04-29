@@ -7,6 +7,8 @@ import org.lombardos.gdx.johngame.JohnGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.width = JohnGame.WIDTH;
+		config.height= JohnGame.HEIGHT;
 		new LwjglApplication(new JohnGame(), config);
 	}
 }
