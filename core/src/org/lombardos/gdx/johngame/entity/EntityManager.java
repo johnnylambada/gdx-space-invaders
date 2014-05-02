@@ -48,11 +48,11 @@ public class EntityManager {
 					entities.removeValue(e, false);
 					entities.removeValue(m, false);
 					if (gameOver())
-						ScreenManager.setScreen(new GameOverScreen(true));
+						ScreenManager.set(new GameOverScreen(true));
 				}
 			}
 			if (e.getBounds().overlaps(player.getBounds())) {
-				ScreenManager.setScreen(new GameOverScreen(false));
+				ScreenManager.set(new GameOverScreen(false));
 			}
 		}
 	}

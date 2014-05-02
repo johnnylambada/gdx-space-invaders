@@ -2,17 +2,18 @@ package org.lombardos.gdx.johngame.screen;
 
 public class ScreenManager {
 
-	private static Screen currentScreen;
+	private static NullScreen nullScreen = new NullScreen();
+	private static Screen screen = nullScreen;
 	
-	public static void setScreen(Screen screen) {
-		if (currentScreen != null)
-			currentScreen.dispose();
-		currentScreen = screen;
-		currentScreen.create();
+	public static void set(Screen newScreen) {
+		if (screen != nullScreen)
+			screen.dispose();
+		screen = newScreen;
+		screen.create();
 	}
 	
-	public static Screen getCurrentScreen() {
-		return currentScreen;
+	public static Screen get() {
+		return screen;
 	}
-	
+
 }

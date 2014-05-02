@@ -15,13 +15,12 @@ public class JohnGame implements ApplicationListener {
 	@Override
 	public void create() {		
 		batch = new SpriteBatch();
-		ScreenManager.setScreen(new GameScreen());
+		ScreenManager.set(new GameScreen());
 	}
 
 	@Override
 	public void dispose() {
-		if (ScreenManager.getCurrentScreen() != null)
-			ScreenManager.getCurrentScreen().dispose();
+		ScreenManager.get().dispose();
 		batch.dispose();
 	}
 
@@ -30,28 +29,22 @@ public class JohnGame implements ApplicationListener {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
-		if (ScreenManager.getCurrentScreen() != null)
-			ScreenManager.getCurrentScreen().update();
-		
-		if (ScreenManager.getCurrentScreen() != null)
-			ScreenManager.getCurrentScreen().render(batch);
+		ScreenManager.get().update();
+		ScreenManager.get().render(batch);
 	}
 
 	@Override
 	public void resize(int width, int height) {
-		if (ScreenManager.getCurrentScreen() != null)
-			ScreenManager.getCurrentScreen().resize(width, height);
+		ScreenManager.get().resize(width, height);
 	}
 
 	@Override
 	public void pause() {
-		if (ScreenManager.getCurrentScreen() != null)
-			ScreenManager.getCurrentScreen().pause();
+		ScreenManager.get().pause();
 	}
 
 	@Override
 	public void resume() {
-		if (ScreenManager.getCurrentScreen() != null)
-			ScreenManager.getCurrentScreen().resume();
+		ScreenManager.get().resume();
 	}
 }
